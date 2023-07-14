@@ -7,9 +7,9 @@ import java.sql.*;
 
 public class CheckPackage extends JFrame {
 
-    String[] package1 = {"GOLD PACKAGE", "6 Days and 7 Nights", "Airport Assistance", "Half Day City Tour", "Daily Buffet", "Welcome Drinks on Arrival", "Full-Day 3 Is-land Cruise", "English Speaking Guide", "BOOK NOW", "Summer Special", "Rs. 1200/-", "icons/package1.jpg"};
-    String[] package2 = {"SILVER PACKAGE", "5 Days and 5 Nights", "Toll-Free Entrance free tickets", "Meet and Greet at Airport", "Free drinks and lunch", "Welcome Drinks on Arrival", "Night safary", "Dinner", "BOOK NOW", "Summer Special", "Rs. 1000/-", "icons/package2.jpg"};
-    String[] package3 = {"BRONZE PACKAGE", "4 Days and 4 Nights", "Return Airfare", "Games-horse riding/clubbing", "Lunch", "Welcome Drinks on Arrival", "Daily Buffet", "BBQ Dinner", "BOOK NOW", "Summer Special", "Rs. 900/-", "icons/package2.jpg"};
+    String[] package1 = {"GOLD PACKAGE", "6 Days and 7 Nights", "Airport Assistance", "Half Day City Tour", "Daily Buffet", "Welcome Drinks on Arrival", "Full-Day 3 Is-land Cruise", "English Speaking Guide", "BOOK NOW", "Summer Special", "Rs. 12000/-", "icons/package1.jpg"};
+    String[] package2 = {"SILVER PACKAGE", "5 Days and 5 Nights", "Toll-Free Entrance free tickets", "Meet and Greet at Airport", "Free drinks and lunch", "Welcome Drinks on Arrival", "Night safary", "Dinner", "BOOK NOW", "Summer Special", "Rs. 10000/-", "icons/package2.jpg"};
+    String[] package3 = {"BRONZE PACKAGE", "4 Days and 4 Nights", "Return Airfare", "Games-horse riding/clubbing", "Lunch", "Welcome Drinks on Arrival", "Daily Buffet", "BBQ Dinner", "BOOK NOW", "Summer Special", "Rs. 8000/-", "icons/package2.jpg"};
 
     CheckPackage() {
 //        setLayout(null);
