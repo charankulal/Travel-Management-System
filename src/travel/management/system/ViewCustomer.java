@@ -11,7 +11,7 @@ public class ViewCustomer extends JFrame implements ActionListener {
     String username;
 
     ViewCustomer(String username) {
-        this.username=username;
+        this.username = username;
         setBounds(400, 160, 870, 625);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -25,7 +25,7 @@ public class ViewCustomer extends JFrame implements ActionListener {
         usernamelabel.setBounds(220, 50, 150, 25);
         usernamelabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
         usernamelabel.setForeground(Color.red);
-add(usernamelabel);
+        add(usernamelabel);
 
         JLabel idlbl = new JLabel("Id :");
         idlbl.setBounds(30, 110, 150, 25);
@@ -107,7 +107,7 @@ add(usernamelabel);
         JLabel emaillbl = new JLabel("Email :");
         emaillbl.setBounds(435, 230, 150, 25);
         emaillbl.setFont(new Font("Times New Roman", Font.BOLD, 16));
-        
+
         add(emaillbl);
 
         JLabel emaillabel = new JLabel("");
@@ -163,12 +163,10 @@ add(usernamelabel);
 
     @Override
     public void actionPerformed(ActionEvent e) {
-            setVisible(false);
-            new Dashboard(username);
+        setVisible(false);
+        
     }
 
-    public static void main(String args[]) {
-        new ViewCustomer("");
-    }
+    
 
 }

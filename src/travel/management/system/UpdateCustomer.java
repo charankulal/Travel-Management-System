@@ -5,27 +5,35 @@ import java.awt.*;
 import javax.swing.*;
 import java.sql.*;
 
-public class AddCustomer extends JFrame implements ActionListener {
+public class UpdateCustomer extends JFrame implements ActionListener {
 
-    JLabel usernamelbl1, namelbl;
     JComboBox comboid;
-    JTextField numberfield, addressfield, countryfield, phonefield, emailfield;
+    JTextField numberfield, addressfield, countryfield, phonefield, emailfield,  namefield;
     JRadioButton rmale, rfemale;
-    JButton add, back;
+    JButton update, back;
+    String username;
+    JLabel usernamefield;
 
-    AddCustomer(String username) {
+    UpdateCustomer(String username) {
+        this.username=username;
 
         setLayout(null);
         getContentPane().setBackground(Color.white);
         setBounds(450, 200, 850, 550);
 
+        JLabel textHeading = new JLabel("UPDATE CUSTOMER DETAILS");
+        textHeading.setBounds(50, 5, 300, 25);
+        textHeading.setForeground(Color.RED);
+        textHeading.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        add(textHeading);
+
         JLabel usernamelbl = new JLabel("Username");
         usernamelbl.setBounds(30, 50, 150, 25);
         add(usernamelbl);
 
-        usernamelbl1 = new JLabel("");
-        usernamelbl1.setBounds(220, 50, 150, 25);
-        add(usernamelbl1);
+        usernamefield = new JLabel("");
+        usernamefield.setBounds(220, 50, 150, 25);
+        add(usernamefield);
 
         JLabel labelid = new JLabel("ID : ");
         labelid.setBounds(30, 90, 150, 25);
@@ -48,9 +56,9 @@ public class AddCustomer extends JFrame implements ActionListener {
         namelabel.setBounds(30, 170, 150, 25);
         add(namelabel);
 
-        namelbl = new JLabel("");
-        namelbl.setBounds(220, 170, 150, 25);
-        add(namelbl);
+        namefield = new JTextField();
+        namefield.setBounds(220, 170, 150, 25);
+        add(namefield);
 
         JLabel genderlabel = new JLabel("Gender : ");
         genderlabel.setBounds(30, 210, 150, 25);
@@ -102,12 +110,12 @@ public class AddCustomer extends JFrame implements ActionListener {
         emailfield.setBounds(220, 370, 150, 25);
         add(emailfield);
 
-        add = new JButton("Add");
-        add.setBackground(Color.BLACK);
-        add.setForeground(Color.white);
-        add.setBounds(70, 430, 100, 25);
-        add.addActionListener(this);
-        add(add);
+        update = new JButton("Update");
+        update.setBackground(Color.BLACK);
+        update.setForeground(Color.white);
+        update.setBounds(70, 430, 100, 25);
+        update.addActionListener(this);
+        add(update);
 
         back = new JButton("Back");
         back.setBackground(Color.BLACK);
@@ -116,19 +124,29 @@ public class AddCustomer extends JFrame implements ActionListener {
         back.addActionListener(this);
         add(back);
 
-        ImageIcon i5 = new ImageIcon(ClassLoader.getSystemResource("icons/newcustomer.jpg"));
-        Image i6 = i5.getImage().getScaledInstance(500, 500, Image.SCALE_DEFAULT);
+        ImageIcon i5 = new ImageIcon(ClassLoader.getSystemResource("icons/update.png"));
+        Image i6 = i5.getImage().getScaledInstance(400, 500, Image.SCALE_DEFAULT);
         ImageIcon i7 = new ImageIcon(i6);
         JLabel image1 = new JLabel(i7);
-        image1.setBounds(400, 0, 500, 500);
+        image1.setBounds(400, 40, 450, 500);
         add(image1);
-
+        
+        
         try {
             Connectivity c = new Connectivity();
-            ResultSet rs = c.s.executeQuery("select * from user_account where username='" + username + "'");
+            String query = "select * from customer where username ='" + username + "'";
+            ResultSet rs = c.s.executeQuery(query);
+
             while (rs.next()) {
-                usernamelbl1.setText(rs.getString("username"));
-                namelbl.setText(rs.getString("name"));
+                usernamefield.setText(rs.getString("username"));
+               comboid.setSelectedItem(rs.getString("id"));
+                numberfield.setText(rs.getString("number"));
+                
+                namefield.setText(rs.getString("name"));
+                countryfield.setText(rs.getString("country"));
+                addressfield.setText(rs.getString("address"));
+                phonefield.setText(rs.getString("phone"));
+                emailfield.setText(rs.getString("email"));
             }
 
         } catch (Exception e) {
@@ -139,11 +157,11 @@ public class AddCustomer extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == add) {
-            String username = usernamelbl1.getText();
+         if (ae.getSource() == update) {
+            String username1 = usernamefield.getText();
             String id = (String) comboid.getSelectedItem();
             String number = numberfield.getText();
-            String name = namelbl.getText();
+            String name = namefield.getText();
             String gender = null;
             if (rmale.isSelected()) {
                 gender = "Male";
@@ -157,25 +175,25 @@ public class AddCustomer extends JFrame implements ActionListener {
 
             try {
                 Connectivity c = new Connectivity();
-                String query = "insert into customer values('" + username + "','" + id + "','" + number + "','" + name + "','" + gender + "','" + country + "','" + address + "','" + phone + "','" + email + "')";
+                String query = "update customer set id='" + id + "',number='" + number + "',name='" + name + "',gender='" + gender + "',country='" + country + "',address='" + address + "',phone='" + phone + "',email='" + email + "' where username='"+username1+"'";
                 c.s.executeUpdate(query);
 
-                JOptionPane.showMessageDialog(null, "Customer Details Added Successfully");
+                JOptionPane.showMessageDialog(null, "Customer Details Updated Successfully");
                 setVisible(false);
-                new Dashboard(username);
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            
 
         } else {
             setVisible(false);
-         
+            
         }
+        
+
+        
 
     }
 
-    public static void main(String args[]) {
-        new AddCustomer("");
-    }
 }
