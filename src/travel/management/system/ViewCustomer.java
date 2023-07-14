@@ -164,9 +164,7 @@ public class ViewCustomer extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         setVisible(false);
-        
-    }
 
-    
+    }
 
 }

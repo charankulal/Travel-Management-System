@@ -7,11 +7,11 @@ import javax.swing.*;
 public class Dashboard extends JFrame implements ActionListener {
 
     JButton personalDetails, updatePersonalDetails, viewPersonalDetails, deletePersonalDetails, checkPackages, bookPackages, viewPackages, viewHotels;
-    JButton bookHotels, viewBookedHotels, destinations, Payments,calculators,notepad,about;
+    JButton bookHotels, viewBookedHotels, destinations, Payments, calculators, notepad, about;
     String username;
 
     Dashboard(String username) {
-        this.username=username;
+        this.username = username;
         setLayout(null);
         getContentPane().setBackground(Color.white);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -182,37 +182,38 @@ public class Dashboard extends JFrame implements ActionListener {
         JLabel image1 = new JLabel(i7);
         image1.setBounds(300, 65, 1350, 935);
         add(image1);
-        
-        JLabel text=new JLabel("Travel and Tourism Management System");
-        text.setBounds(150,70,1000,70);
+
+        JLabel text = new JLabel("Travel and Tourism Management System");
+        text.setBounds(150, 70, 1000, 70);
         text.setForeground(Color.white);
-        text.setFont(new Font("Raleway",Font.BOLD,50));
+        text.setFont(new Font("Raleway", Font.BOLD, 50));
         image1.add(text);
 
         setVisible(true);
     }
 
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==personalDetails)
-        {
-            
+        if (ae.getSource() == personalDetails) {
+
             new AddCustomer(username);
-        }
-        
-        else if(ae.getSource()==viewPersonalDetails)
-        {
-            
+        } else if (ae.getSource() == viewPersonalDetails) {
+
             new ViewCustomer(username);
-        }
-        else if(ae.getSource()==updatePersonalDetails)
-        {
-            
+        } else if (ae.getSource() == updatePersonalDetails) {
+
             new UpdateCustomer(username);
+        }else if (ae.getSource() == checkPackages) {
+
+            new CheckPackage();
         }
         
         
         
+
+    }
+    public static void main(String args[])
+    {
+        new Dashboard("");
     }
 
-   
 }

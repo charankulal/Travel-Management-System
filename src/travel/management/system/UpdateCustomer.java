@@ -8,14 +8,14 @@ import java.sql.*;
 public class UpdateCustomer extends JFrame implements ActionListener {
 
     JComboBox comboid;
-    JTextField numberfield, addressfield, countryfield, phonefield, emailfield,  namefield;
+    JTextField numberfield, addressfield, countryfield, phonefield, emailfield, namefield;
     JRadioButton rmale, rfemale;
     JButton update, back;
     String username;
     JLabel usernamefield;
 
     UpdateCustomer(String username) {
-        this.username=username;
+        this.username = username;
 
         setLayout(null);
         getContentPane().setBackground(Color.white);
@@ -130,8 +130,7 @@ public class UpdateCustomer extends JFrame implements ActionListener {
         JLabel image1 = new JLabel(i7);
         image1.setBounds(400, 40, 450, 500);
         add(image1);
-        
-        
+
         try {
             Connectivity c = new Connectivity();
             String query = "select * from customer where username ='" + username + "'";
@@ -139,9 +138,9 @@ public class UpdateCustomer extends JFrame implements ActionListener {
 
             while (rs.next()) {
                 usernamefield.setText(rs.getString("username"));
-               comboid.setSelectedItem(rs.getString("id"));
+                comboid.setSelectedItem(rs.getString("id"));
                 numberfield.setText(rs.getString("number"));
-                
+
                 namefield.setText(rs.getString("name"));
                 countryfield.setText(rs.getString("country"));
                 addressfield.setText(rs.getString("address"));
@@ -157,7 +156,7 @@ public class UpdateCustomer extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-         if (ae.getSource() == update) {
+        if (ae.getSource() == update) {
             String username1 = usernamefield.getText();
             String id = (String) comboid.getSelectedItem();
             String number = numberfield.getText();
@@ -175,7 +174,7 @@ public class UpdateCustomer extends JFrame implements ActionListener {
 
             try {
                 Connectivity c = new Connectivity();
-                String query = "update customer set id='" + id + "',number='" + number + "',name='" + name + "',gender='" + gender + "',country='" + country + "',address='" + address + "',phone='" + phone + "',email='" + email + "' where username='"+username1+"'";
+                String query = "update customer set id='" + id + "',number='" + number + "',name='" + name + "',gender='" + gender + "',country='" + country + "',address='" + address + "',phone='" + phone + "',email='" + email + "' where username='" + username1 + "'";
                 c.s.executeUpdate(query);
 
                 JOptionPane.showMessageDialog(null, "Customer Details Updated Successfully");
@@ -184,15 +183,11 @@ public class UpdateCustomer extends JFrame implements ActionListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            
 
         } else {
             setVisible(false);
-            
-        }
-        
 
-        
+        }
 
     }
 
