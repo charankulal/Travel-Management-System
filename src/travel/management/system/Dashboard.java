@@ -193,7 +193,17 @@ public class Dashboard extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-
+        if(ae.getSource()==personalDetails)
+        {
+            setVisible(false);
+            new AddCustomer(username);
+        }
+        
+        else if(ae.getSource()==viewPersonalDetails)
+        {
+            setVisible(false);
+            new ViewCustomer(username);
+        }
     }
 
     public static void main(String args[]) {

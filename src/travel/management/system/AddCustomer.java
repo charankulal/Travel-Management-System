@@ -3,6 +3,7 @@ package travel.management.system;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
+import java.sql.*;
 
 public class AddCustomer extends JFrame implements ActionListener {
 
@@ -12,7 +13,8 @@ public class AddCustomer extends JFrame implements ActionListener {
     JRadioButton rmale, rfemale;
     JButton add, back;
 
-    AddCustomer() {
+    AddCustomer(String username) {
+
         setLayout(null);
         getContentPane().setBackground(Color.white);
         setBounds(450, 200, 850, 550);
@@ -92,7 +94,7 @@ public class AddCustomer extends JFrame implements ActionListener {
         phonefield.setBounds(220, 330, 150, 25);
         add(phonefield);
 
-        JLabel emaillbl = new JLabel("Address :");
+        JLabel emaillbl = new JLabel("Email Id :");
         emaillbl.setBounds(30, 370, 150, 25);
         add(emaillbl);
 
@@ -104,12 +106,14 @@ public class AddCustomer extends JFrame implements ActionListener {
         add.setBackground(Color.BLACK);
         add.setForeground(Color.white);
         add.setBounds(70, 430, 100, 25);
+        add.addActionListener(this);
         add(add);
 
         back = new JButton("Back");
         back.setBackground(Color.BLACK);
         back.setForeground(Color.white);
         back.setBounds(270, 430, 100, 25);
+        back.addActionListener(this);
         add(back);
 
         ImageIcon i5 = new ImageIcon(ClassLoader.getSystemResource("icons/newcustomer.jpg"));
@@ -118,14 +122,16 @@ public class AddCustomer extends JFrame implements ActionListener {
         JLabel image1 = new JLabel(i7);
         image1.setBounds(400, 0, 500, 500);
         add(image1);
-        
-        try{
-            Connectivity c=new Connectivity();
-            c.s.executeQuery("select * from user_account where uername");
-            
-            
-        }catch(Exception e)
-        {
+
+        try {
+            Connectivity c = new Connectivity();
+            ResultSet rs = c.s.executeQuery("select * from user_account where username='" + username + "'");
+            while (rs.next()) {
+                usernamelbl1.setText(rs.getString("username"));
+                namelbl.setText(rs.getString("name"));
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -133,10 +139,42 @@ public class AddCustomer extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == add) {
+            String username = usernamelbl1.getText();
+            String id = (String) comboid.getSelectedItem();
+            String number = numberfield.getText();
+            String name = namelbl.getText();
+            String gender = null;
+            if (rmale.isSelected()) {
+                gender = "Male";
+            } else {
+                gender = "Female";
+            }
+            String country = countryfield.getText();
+            String address = addressfield.getText();
+            String phone = phonefield.getText();
+            String email = emailfield.getText();
+
+            try {
+                Connectivity c = new Connectivity();
+                String query = "insert into customer values('" + username + "','" + id + "','" + number + "','" + name + "','" + gender + "','" + country + "','" + address + "','" + phone + "','" + email + "')";
+                c.s.executeUpdate(query);
+
+                JOptionPane.showMessageDialog(null, "Customer Details Added Successfully");
+                setVisible(false);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            setVisible(false);
+            new Dashboard("");
+        }
 
     }
 
     public static void main(String args[]) {
-        new AddCustomer();
+        new AddCustomer("");
     }
 }
