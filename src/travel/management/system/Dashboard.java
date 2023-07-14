@@ -8,8 +8,10 @@ public class Dashboard extends JFrame implements ActionListener {
 
     JButton personalDetails, updatePersonalDetails, viewPersonalDetails, deletePersonalDetails, checkPackages, bookPackages, viewPackages, viewHotels;
     JButton bookHotels, viewBookedHotels, destinations, Payments,calculators,notepad,about;
+    String username;
 
-    Dashboard() {
+    Dashboard(String username) {
+        this.username=username;
         setLayout(null);
         getContentPane().setBackground(Color.white);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -195,6 +197,6 @@ public class Dashboard extends JFrame implements ActionListener {
     }
 
     public static void main(String args[]) {
-        new Dashboard();
+        new Dashboard("");
     }
 }
