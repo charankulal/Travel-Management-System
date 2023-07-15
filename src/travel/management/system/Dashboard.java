@@ -227,6 +227,10 @@ public class Dashboard extends JFrame implements ActionListener {
 
             new ViewBookedHotel(username);
         }
+        else if (ae.getSource() == Payments) {
+
+            new Payment();
+        }
         
         
         
