@@ -202,69 +202,50 @@ public class Dashboard extends JFrame implements ActionListener {
         } else if (ae.getSource() == updatePersonalDetails) {
 
             new UpdateCustomer(username);
-        }else if (ae.getSource() == checkPackages) {
+        } else if (ae.getSource() == checkPackages) {
 
             new CheckPackage();
-        }
-        else if (ae.getSource() == bookPackages) {
+        } else if (ae.getSource() == bookPackages) {
 
             new BookPackage(username);
-        }else if (ae.getSource() == viewPackages) {
+        } else if (ae.getSource() == viewPackages) {
 
             new ViewPackage(username);
-        }else if (ae.getSource() == viewHotels) {
+        } else if (ae.getSource() == viewHotels) {
 
             new CheckHotels();
-        }
-        else if (ae.getSource() == destinations) {
+        } else if (ae.getSource() == destinations) {
 
             new ViewDestinations();
-        }
-        else if (ae.getSource() == bookHotels) {
+        } else if (ae.getSource() == bookHotels) {
 
             new BookHotel(username);
-        }else if (ae.getSource() == viewBookedHotels) {
+        } else if (ae.getSource() == viewBookedHotels) {
 
             new ViewBookedHotel(username);
-        }
-        else if (ae.getSource() == Payments) {
+        } else if (ae.getSource() == Payments) {
 
             new Payment();
-        }
-        
-        else if (ae.getSource() == calculators) {
-            try{
+        } else if (ae.getSource() == calculators) {
+            try {
                 Runtime.getRuntime().exec("calc.exe");
-            }catch(Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else if (ae.getSource() == notepad) {
-            try{
+        } else if (ae.getSource() == notepad) {
+            try {
                 Runtime.getRuntime().exec("notepad.exe");
-            }catch(Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else if (ae.getSource() == about) {
+        } else if (ae.getSource() == about) {
 
             new About();
-        }
-        
-        
-        
-        
-        
-        
-        
-        
+        } else if (ae.getSource() == deletePersonalDetails) {
 
-    }
-    public static void main(String args[])
-    {
-        new Dashboard("Krishna123");
+            new DeleteDetails(username);
+        }
+
     }
 
 }
