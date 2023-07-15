@@ -60,7 +60,7 @@ public class CheckHotels extends JFrame implements Runnable{
     @Override
     public void run() {
         
-        String text[]=new String[]{"JW Marriot Hotel","Madarin Oriental Hotel","4 Seasons Hotels","Raddison Blue Hotel","Classico Hotel","The Bay Club hotel","The Continental","The Ocean Pearl","The Jordan","The ReiverView Hotel"};
+        String text[]=new String[]{"JW Marriot Hotel","Mandarin Oriental Hotel","4 Seasons Hotels","Raddison Blue Hotel","Classico Hotel","The Bay Club hotel","The Continental","The Ocean Pearl","The Jordan","The ReiverView Hotel"};
         
         try{
             for(int i=0;i<=9;i++)
