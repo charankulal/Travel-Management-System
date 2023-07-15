@@ -232,6 +232,15 @@ public class Dashboard extends JFrame implements ActionListener {
             new Payment();
         }
         
+        else if (ae.getSource() == calculators) {
+            try{
+                Runtime.getRuntime().exec("calc.exe");
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        
         
         
         
