@@ -220,7 +220,10 @@ public class Dashboard extends JFrame implements ActionListener {
 
             new ViewDestinations();
         }
-        
+        else if (ae.getSource() == bookHotels) {
+
+            new BookHotel(username);
+        }
         
         
         
