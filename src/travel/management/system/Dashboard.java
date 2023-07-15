@@ -209,14 +209,19 @@ public class Dashboard extends JFrame implements ActionListener {
         else if (ae.getSource() == bookPackages) {
 
             new BookPackage(username);
+        }else if (ae.getSource() == viewPackages) {
+
+            new ViewPackage(username);
         }
+        
+        
         
         
 
     }
     public static void main(String args[])
     {
-        new Dashboard("");
+        new Dashboard("Krishna123");
     }
 
 }
