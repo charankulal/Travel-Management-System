@@ -240,6 +240,14 @@ public class Dashboard extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
         }
+        else if (ae.getSource() == notepad) {
+            try{
+                Runtime.getRuntime().exec("notepad.exe");
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
         
         
         
