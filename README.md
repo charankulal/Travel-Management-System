@@ -4,38 +4,40 @@
 ### The Travel management system is implemented using java programming language, the frames are constructed using Swings and Data base implemented using MySQL and connected by using jdbc connectivity.
 
 ## The Login Page 
-![Alt text](image.png)
+![Screenshot of login page](Screenshots/image.png)
+
+
 
 
 ## Signup Page
-![Alt text](image-1.png)
+![Alt text](Screenshots/image-1.png)
 
-![Alt text](image-2.png)
+![Alt text](Screenshots/image-2.png)
 
 ## Loading Page
-![Alt text](image-3.png)
+![Alt text](Screenshots/image-3.png)
 
 ## Dashboard
 
-![Alt text](image-4.png)
+![Alt text](Screenshots/image-4.png)
 ### It contains the list of operations.
 
 ## Add personal details page.
-![Alt text](image-5.png)
+![Alt text](Screenshots/image-5.png)
 
 ## Update personal details page.
-![Alt text](image-6.png)
+![Alt text](Screenshots/image-6.png)
 
 ## View personal details page.
 
-![Alt text](image-7.png)
+![Alt text](Screenshots/image-7.png)
 
 ## Check package page.
 
-![Alt text](image-8.png)
+![Alt text](Screenshots/image-8.png)
 
 ## Book package page.
-![Alt text](image-9.png)
+![Alt text](Screenshots/image-9.png)
 
 ## View booked package page.
 ![Alt text](<Screenshots/View booked package page.png>)
